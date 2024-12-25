@@ -1,5 +1,6 @@
 import express from "express";
-import { login, logout, register } from "../controllers/AuthController.js";
+import { isAuthenticated, login, logout, register, sendVerifyOtp, verifyEmail } from "../controllers/AuthController.js";
+import UserAuth from "../middleware/UserAuth.js";
 
 const authrouter = express.Router();
 
@@ -7,5 +8,7 @@ const authrouter = express.Router();
 authrouter.post("/register", register);
 authrouter.post("/login", login);
 authrouter.post("/logout", logout);
-
+authrouter.post("/send-verify-otp", UserAuth, sendVerifyOtp);
+authrouter.post("/verify-account", UserAuth, verifyEmail);
+authrouter.post("/is-auth", UserAuth, isAuthenticated);
 export default authrouter;
