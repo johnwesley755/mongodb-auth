@@ -10,7 +10,7 @@ authrouter.post("/login", login);
 authrouter.post("/logout", logout);
 authrouter.post("/send-verify-otp", UserAuth, sendVerifyOtp);
 authrouter.post("/verify-account", UserAuth, verifyEmail);
-authrouter.post("/is-auth", UserAuth, isAuthenticated);
+authrouter.get("/is-auth", UserAuth, isAuthenticated);
 authrouter.post('/send-reset-otp', sendResetOtp);
 authrouter.post('/reset-password', resetPassword);
 export default authrouter;
